@@ -10,6 +10,8 @@
   
   </head>
   <body>
+
+    <!-- navbar -->
     <div class="navbar">
       <Link to="/">
         <img class="logo" src="img/flor-de-lotus-nav.png" alt="Costs" />
@@ -20,23 +22,35 @@
         </li>
       </ul>
     </div>
+    <!-- fim navbar-->
+
+    <!-- container -->
     <div class="container">
 
+      <!-- botão para virar camera -->
       <button class="btn" id="btnChangeCamera">
         <img class="img" src="img/repetir.png" alt="Start">
       </button>
 
+      <!-- botão para iniciar video -->
       <button type="button" class="btn" onclick="init()"><img class="img" src="img/video-player.png" alt="Start"></button>
 
+      <!-- container do quadro do video da camera-->
       <div id="webcam-container"></div>
+      <!-- container do quadro do video de texto -->
       <div class="textcom" id="label-container"></div>
 
       <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
       <script src="script.js" defer></script>
     </div>
+    <!-- fim container -->
+
+    <!-- footer -->
     <footer class="panel-footer">
       Todos direitos reservados - Departamento de Computação - IFSULDEMINAS -Campus Machado
     </footer>
+    <!-- fim footer -->
+    
   </body>
 </html>
