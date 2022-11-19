@@ -19,7 +19,6 @@ body {
 .btn {
     color: white;
     justify-self: center;
-    background-color: #FFB6C1;
     margin-left: 5%;
     width: 70px;
     height: 70px;
@@ -31,10 +30,6 @@ body {
 .img {
     width: 50px;
     height: 50px; 
-}
-
-.btn:hover{
-    background-color: palevioletred;
 }
 
 .panel-footer {
