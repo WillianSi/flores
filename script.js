@@ -12,7 +12,6 @@ let useFrontCamera = true;
 // troca de câmera
 btnChangeCamera.addEventListener("click", function () {
   useFrontCamera = !useFrontCamera;
-  init();
 });
 
 // Carrega o modelo de imagem e configura a webcam
