@@ -7,31 +7,39 @@
     <link rel="shortcut icon" href="img/flor-de-lotus.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css"/>
+  
   </head>
-  <body style="background-image: url(img/floreRosa.png)">
-    <div class="container" style="text-align: center">
-      <div class="container" style="text-align: center">
-        <div class="jumbotron" style="background-color: #FFB6C1; color: white">
-          <a><img id="logo" src="img/flor-de-lotus-nav.png" alt="JobFinder" /></a>
-          <h1>IFSULDEMINAS - Categorizador de flores</h1>
-          <p>Campus Machado</p>
-        </div>
+  <body>
+    <div class="navbar">
+      <Link to="/">
+        <img class="logo" src="img/flor-de-lotus-nav.png" alt="Costs" />
+      </Link>
+      <ul class="list">
+        <li class="item">
+          <p>IFSULDEMINAS - Categorizador de flores</p>
+        </li>
+      </ul>
+    </div>
+    <div class="container">
+
+      <button class="button" id="btnChangeCamera">
+        <span class="icon">
+          <i class="fas fa-sync-alt"></i>
+        </span>
+        <span>Switch camera</span>
+      </button>
 
       <button type="button" class="btn" onclick="init()"><img class="img" src="img/video-player.png" alt="Start"></button>
 
-      <div id="webcam-container"></div>
-      <div id="label-container"></div>
+      <div class="camercom" id="webcam-container"></div>
+      <div class="textcom" id="label-container"></div>
+
       <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
-      <script src="script.js"></script>
-
-      <footer
-      class="panel-footer"
-      style="text-align: center; background-color: #FFB6C1; color: white"
-    >
-      Todos direitos reservados - Departamento de Computação - IFSULDEMINAS -
-      Campus Machado
-    </footer>
+      <script src="script.js" defer></script>
     </div>
+    <footer class="panel-footer">
+      Todos direitos reservados - Departamento de Computação - IFSULDEMINAS -Campus Machado
+    </footer>
   </body>
 </html>

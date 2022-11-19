@@ -1,49 +1,60 @@
 // More API functions here:
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
-// the link to your model provided by Teachable Machine export panel
+// o link para o seu modelo fornecido pelo painel de exportação Teachable Machine
+const btnChangeCamera = document.querySelector("#btnChangeCamera");
 const URL = "https://teachablemachine.withgoogle.com/models/CCaZVIUPA/";
 
 let model, webcam, labelContainer, maxPredictions;
 
-// Load the image model and setup the webcam
+let useFrontCamera = true;
+
+// troca de câmera
+btnChangeCamera.addEventListener("click", function () {
+  useFrontCamera = !useFrontCamera;
+
+  console.log(useFrontCamera)
+  init();
+});
+
+// Carrega o modelo de imagem e configura a webcam
 async function init() {
   const modelURL = URL + "model.json";
   const metadataURL = URL + "metadata.json";
 
-  // load the model and metadata
-  // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-  // or files from your local hard drive
-  // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+  // carrega o modelo e os metadados
+  // Consulte tmImage.loadFromFiles() na API para oferecer suporte a arquivos de um seletor de arquivos
+  // ou arquivos do seu disco rígido local
+  // Nota: a biblioteca pose adiciona o objeto "tmImage" à sua janela (window.tmImage)
   model = await tmImage.load(modelURL, metadataURL);
   maxPredictions = model.getTotalClasses();
 
-  // Convenience function to setup a webcam
-  const flip = false; // whether to flip the webcam
-  webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+  // Função de conveniência para configurar uma webcam
+  webcam = new tmImage.Webcam(400, 400, useFrontCamera); //largura, altura, flip
+  console.log(useFrontCamera)
   await webcam.setup({ facingMode: "environment" });
-  await webcam.setup(); // request access to the webcam
+  await webcam.setup(); // solicita acesso à webcam
   await webcam.play();
   window.requestAnimationFrame(loop);
 
-  // append elements to the DOM
+  // acrescenta elementos ao DOM
   document.getElementById("webcam-container").appendChild(webcam.canvas);
   labelContainer = document.getElementById("label-container");
   for (let i = 0; i < maxPredictions; i++) {
-    // and class labels
+    // e rótulos de classe
     labelContainer.appendChild(document.createElement("div"));
   }
 }
 
 async function loop() {
-  webcam.update(); // update the webcam frame
+  webcam.update(); // atualiza o quadro da webcam
   await predict();
   window.requestAnimationFrame(loop);
 }
 
-// run the webcam image through the image model
+// executa a imagem da webcam através do modelo de imagem
 async function predict() {
-  // predict can take in an image, video or canvas html element
+  // predict pode levar em uma imagem, vídeo ou elemento html de tela
   const prediction = await model.predict(webcam.canvas);
   for (let i = 0; i < maxPredictions; i++) {
     const classPrediction =
