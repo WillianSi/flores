@@ -7,7 +7,7 @@ const URL = "https://teachablemachine.withgoogle.com/models/CCaZVIUPA/";
 
 let model, webcam, labelContainer, maxPredictions;
 
-let useFrontCamera = true;
+let useFrontCamera = false;
 
 // troca de câmera
 btnChangeCamera.addEventListener("click", function () {
