@@ -12,8 +12,6 @@ let useFrontCamera = true;
 // troca de câmera
 btnChangeCamera.addEventListener("click", function () {
   useFrontCamera = !useFrontCamera;
-
-  console.log(useFrontCamera)
   init();
 });
 
@@ -30,8 +28,7 @@ async function init() {
   maxPredictions = model.getTotalClasses();
 
   // Função de conveniência para configurar uma webcam
-  webcam = new tmImage.Webcam(400, 400, useFrontCamera); //largura, altura, flip
-  console.log(useFrontCamera)
+  webcam = new tmImage.Webcam(300, 300, useFrontCamera); //largura, altura, flip
   await webcam.setup({ facingMode: "environment" });
   await webcam.setup(); // solicita acesso à webcam
   await webcam.play();
