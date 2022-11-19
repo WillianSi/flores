@@ -1,9 +1,13 @@
+* {
+  font-family: Verdana, sans-serif; 
+}
+
 body {
     background-image: url(img/floreRosa.png);
 }
 
 .container {
-    text-align: center
+    text-align: center;
 }
 
 .jumbotron {
@@ -14,7 +18,9 @@ body {
 
 .btn {
     color: white;
+    justify-self: center;
     background-color: #FFB6C1;
+    margin-left: 5%;
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -23,7 +29,6 @@ body {
 }
 
 .img {
-    text-align: center;
     width: 50px;
     height: 50px; 
 }
@@ -60,6 +65,7 @@ body {
   
   .item h1 {
     color: #fff;
+    font-weight: bold;
     margin-top: 20px;
     font-size: 10px;
   }
@@ -71,7 +77,6 @@ body {
 
   
 .textcom {
-  font-family: Verdana, sans-serif; 
   color: rgb(186, 102, 116);
   text-align: center;
   font-weight: bold;
