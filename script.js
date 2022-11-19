@@ -7,7 +7,7 @@ const URL = "https://teachablemachine.withgoogle.com/models/CCaZVIUPA/";
 
 let model, webcam, labelContainer, maxPredictions;
 
-let useFrontCamera = false;
+let useFrontCamera = true;
 
 // troca de câmera
 btnChangeCamera.addEventListener("click", function () {
@@ -29,7 +29,9 @@ async function init() {
 
   // Função de conveniência para configurar uma webcam
   webcam = new tmImage.Webcam(300, 300, useFrontCamera); //largura, altura, flip
-  await webcam.setup({ facingMode: "environment" });
+  if (useFrontCamera === false){
+    await webcam.setup({ facingMode: "environment" });
+  }
   await webcam.setup(); // solicita acesso à webcam
   await webcam.play();
   window.requestAnimationFrame(loop);
