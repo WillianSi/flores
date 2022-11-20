@@ -3,13 +3,19 @@
 
 // o link para o seu modelo fornecido pelo painel de exportação Teachable Machine
 const btnChangeCamera = document.querySelector("#btnChangeCamera");
+const btnCloseCamera = document.querySelector("#btnCloseCamera");
 const URL = "https://teachablemachine.withgoogle.com/models/CCaZVIUPA/";
 
 let model, webcam, labelContainer, maxPredictions;
 
 let useFrontCamera = true;
 
-// troca de câmera
+// fechar câmera
+btnCloseCamera.addEventListener("click", function () {
+  window.location.reload();
+})
+
+// câmera frontal
 btnChangeCamera.addEventListener("click", function () {
   useFrontCamera = !useFrontCamera;
   init();
@@ -17,6 +23,7 @@ btnChangeCamera.addEventListener("click", function () {
 
 // Carrega o modelo de imagem e configura a webcam
 async function init() {
+  
   const modelURL = URL + "model.json";
   const metadataURL = URL + "metadata.json";
 
@@ -57,9 +64,7 @@ async function predict() {
   const prediction = await model.predict(webcam.canvas);
   for (let i = 0; i < maxPredictions; i++) {
     const classPrediction =
-      prediction[i].className +
-      ": " +
-      prediction[i].probability.toFixed(2);
-    labelContainer.childNodes[i].innerHTML = classPrediction;
+      prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+      labelContainer.childNodes[i].innerHTML = classPrediction;
   }
 }
