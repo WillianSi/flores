@@ -11,7 +11,6 @@ let useFrontCamera = true;
 
 // troca de câmera
 btnChangeCamera.addEventListener("click", function () {
-  window.location.reload(true)
   useFrontCamera = !useFrontCamera;
   init();
 });
