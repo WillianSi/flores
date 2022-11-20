@@ -7,7 +7,7 @@ const btnCloseCamera = document.querySelector("#btnCloseCamera");
 const URL = "https://teachablemachine.withgoogle.com/models/CCaZVIUPA/";
 
 let model, webcam, labelContainer, maxPredictions;
-
+var j = 0;
 let useFrontCamera = true;
 
 // fechar câmera
@@ -42,14 +42,17 @@ async function init() {
   await webcam.setup(); // solicita acesso à webcam
   await webcam.play();
   window.requestAnimationFrame(loop);
-
   // acrescenta elementos ao DOM
+  j++
   document.getElementById("webcam-container").appendChild(webcam.canvas);
   labelContainer = document.getElementById("label-container");
   for (let i = 0; i < maxPredictions; i++) {
+    if (j === 2) {
+      window.location.reload(true);
+    }
     // e rótulos de classe
     labelContainer.appendChild(document.createElement("div"));
-  }
+  } 
 }
 
 async function loop() {
