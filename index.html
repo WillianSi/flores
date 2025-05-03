@@ -13,41 +13,41 @@
 
 <body>
   <!-- navbar -->
-  <div class="navbar">
-    <Link to="/">
-    <img class="logo" src="img/flor-de-lotus-nav.png" alt="Costs" />
-    </Link>
-    <ul class="list">
-      <li class="item">
-        <h1>IFSULDEMINAS - Categorizador de flores</h1>
-      </li>
-    </ul>
-  </div>
-  <!-- fim navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-pink">
+    <a class="navbar-brand" href="#">
+      <img class="logo" src="img/flor-de-lotus-nav.png" alt="Flores" />
+    </a>
+    <span class="navbar-text">
+      <h1>IFSULDEMINAS - Categorizador de Flores</h1>
+    </span>
+  </nav>
 
-  <!-- container -->
-  <div class="container">
-    <!-- botão para camera frontal-->
-    <button class="btn" id="btnChangeCamera"><img class="img" src="img/mobileT.png" alt="Start"></button>
-    <!-- botão fechar -->
-    <button class="btn" id="btnCloseCamera"><img class="img" src="img/fechar.png" alt="Start"></button>
-    <!-- botão para camera traseira -->
-    <button type="button" class="btn" onclick="init()"><img class="img" src="img/mobileF.png" alt="Start"></button>
-    <!-- container do quadro do video da camera-->
-    <div id="webcam-container"></div>
-    <!-- container do quadro do video de texto -->
+  <!-- main container -->
+  <div class="container main-content text-center">
+    <div class="button-group">
+      <button class="btn btn-flower" id="btnChangeCamera" title="Trocar câmera">
+        <img class="img-btn" src="img/mobileT.png" alt="Frontal">
+      </button>
+      <button class="btn btn-flower" id="btnCloseCamera" title="Fechar câmera">
+        <img class="img-btn" src="img/fechar.png" alt="Fechar">
+      </button>
+      <button class="btn btn-flower" type="button" onclick="init()" title="Traseira">
+        <img class="img-btn" src="img/mobileF.png" alt="Traseira">
+      </button>
+    </div>
+
+    <div id="webcam-container" class="webcam-box"></div>
     <div class="textcom" id="label-container"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
-    <script src="script.js" defer></script>
   </div>
-  <!-- fim container -->
 
   <!-- footer -->
-  <footer class="panel-footer">
-    Todos direitos reservados - Departamento de Computação - IFSULDEMINAS -Campus Machado
+  <footer class="footer">
+    Todos direitos reservados - Departamento de Computação - IFSULDEMINAS - Campus Machado
   </footer>
-  <!-- fim footer -->
+
+  <!-- scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
